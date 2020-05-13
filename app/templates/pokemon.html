@@ -15,6 +15,10 @@
         text-transform: capitalize;
     }
 
+    .progress {
+        margin-bottom: 0 !important;
+    }
+
     .type-icon {
         display: inline-block;
         width: 66px;
@@ -144,30 +148,65 @@
             <h2>Base Stats</h2>
             <table class="table table-light">
                 <tbody>
-                <tr>
-                    <th scope="row">Attack</th>
-                    <td>{{ pokemon.base_stat_atk }}</td>
-                    <td></td>
+                <tr class="d-flex">
+                    <th class="col-3" scope="row">Attack</th>
+                    <td class="col-2">{{ pokemon.base_stat_atk }}</td>
+                    <td class="col-6">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width: {{ (pokemon.base_stat_atk) / 1.5 }}%"
+                                 aria-valuenow="{{ (pokemon.base_stat_def) / 1.5 }}"
+                                 aria-valuemin="0" aria-valuemax="150"></div>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <th scope="row">Defense</th>
-                    <td>{{ pokemon.base_stat_def }}</td>
-                    <td></td>
+                <tr class="d-flex">
+                    <th class="col-3" scope="row">Defense</th>
+                    <td class="col-2">{{ pokemon.base_stat_def }}</td>
+                    <td class="col-6">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width: {{ (pokemon.base_stat_def) / 1.5 }}%"
+                                 aria-valuenow="{{ (pokemon.base_stat_def) / 1.5 }}"
+                                 aria-valuemin="0" aria-valuemax="150"></div>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <th scope="row">Sp.Atk</th>
-                    <td>{{ pokemon.base_stat_spatk }}</td>
-                    <td></td>
+                <tr class="d-flex">
+                    <th class="col-3" scope="row">Sp.Atk</th>
+                    <td class="col-2">{{ pokemon.base_stat_spatk }}</td>
+                    <td class="col-6">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width: {{ (pokemon.base_stat_spatk) / 1.5 }}%"
+                                 aria-valuenow="{{ (pokemon.base_stat_spatk) / 1.5 }}"
+                                 aria-valuemin="0" aria-valuemax="150"></div>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <th scope="row">Sp.Def</th>
-                    <td>{{ pokemon.base_stat_spdef }}</td>
-                    <td></td>
+                <tr class="d-flex">
+                    <th class="col-3" scope="row">Sp.Def</th>
+                    <td class="col-2">{{ pokemon.base_stat_spdef }}</td>
+                    <td class="col-6">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width: {{ (pokemon.base_stat_spdef) / 1.5 }}%"
+                                 aria-valuenow="{{ (pokemon.base_stat_spdef) / 1.5 }}"
+                                 aria-valuemin="0" aria-valuemax="150"></div>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <th scope="row">Speed</th>
-                    <td>{{ pokemon.base_stat_speed }}</td>
-                    <td></td>
+                <tr class="d-flex">
+                    <th class="col-3" scope="row">Speed</th>
+                    <td class="col-2">{{ pokemon.base_stat_speed }}</td>
+                    <td class="col-6">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width: {{ (pokemon.base_stat_speed) / 1.5 }}%"
+                                 aria-valuenow="{{ (pokemon.base_stat_speed) / 1.5 }}"
+                                 aria-valuemin="0" aria-valuemax="150"></div>
+                        </div>
+                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -194,9 +233,9 @@
                     </td>
                     <td align="center">
                         {% if pokemon.sprites_back_female %}
-                            <img src={{ pokemon.sprites_back_female }}>
+                        <img src={{ pokemon.sprites_back_female }}>
                         {% else %}
-                            <div></div>
+                        <div></div>
                         {% endif %}
                     </td>
                     <td align="center">
@@ -204,9 +243,9 @@
                     </td>
                     <td align="center">
                         {% if pokemon.sprites_front_female %}
-                            <img src={{ pokemon.sprites_front_female }}>
+                        <img src={{ pokemon.sprites_front_female }}>
                         {% else %}
-                            <div></div>
+                        <div></div>
                         {% endif %}
                     </td>
                 </tr>
@@ -217,9 +256,9 @@
                     </td>
                     <td align="center">
                         {% if pokemon.sprites_back_shiny_female %}
-                            <img src={{ pokemon.sprites_back_shiny_female }}>
+                        <img src={{ pokemon.sprites_back_shiny_female }}>
                         {% else %}
-                            <div></div>
+                        <div></div>
                         {% endif %}
                     </td>
                     <td align="center">
@@ -227,9 +266,9 @@
                     </td>
                     <td align="center">
                         {% if pokemon.sprites_front_shiny_female %}
-                            <img src={{ pokemon.sprites_front_shiny_female }}>
+                        <img src={{ pokemon.sprites_front_shiny_female }}>
                         {% else %}
-                            <div></div>
+                        <div></div>
                         {% endif %}
                     </td>
                 </tr>
