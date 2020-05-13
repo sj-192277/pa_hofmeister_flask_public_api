@@ -1,0 +1,35 @@
+<html>
+<head>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcome to a simple Pokédex</title>
+    {% endif %}
+</head>
+<body>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='bootstrap/bootstrap.css') }}">
+<style>
+    h5 {
+        text-transform: capitalize;
+    }
+</style>
+{% if title %}
+<h1>{{ title }}</h1>
+{% endif %}
+<div class="card-group">
+    {% for pokemon in pokemons %}
+    <a href="/{{ pokemon.name }}">
+        <div class="card" style="width: 15rem;">
+            <img class="card-img-top"
+                 src={{ pokemon.sprites_front_default }}
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ pokemon.name }}</h5>
+                <p class="card-text">{{ pokemon.type1 }} / {{ pokemon.type2 }}</p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+</body>
+</html>
