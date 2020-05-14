@@ -33,5 +33,5 @@ The Flask app should be now running on http://127.0.0.1:8080/
 
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - The web framework used
 * [Requests](https://requests.readthedocs.io/en/master/) - HTTP library for Python
-* [PokéAPI](https://pokeapi.co)
+* [PokéAPI](https://pokeapi.co) - Public API used to obtain data
 * [Bootstrap](https://getbootstrap.com) - Used to have nice Styling :)
