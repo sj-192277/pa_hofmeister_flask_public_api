@@ -1,6 +1,6 @@
 # Flask Anbindung an eine Public API
 
-In this repo you will find a small flash application that accesses the [PokéAPI](https://pokeapi.co) and communicates with it via REST. To comply with the guidelines of this public API, the data is stored in a local database and is accessed from there when the page is accessed.
+In this repo you will find a small Flask application that accesses the [PokéAPI](https://pokeapi.co) and communicates with it via REST. To comply with the guidelines of this public API, the data is stored in a local database and is accessed from there when the page is accessed.
 The purpose behind this is to compare the procedure of creating a page with Flask and Django. The same application (only created with Django), you can find in my other repo: https://github.com/sj-192277/pa_hofmeister_django_public_api
 
 ## Getting Started
