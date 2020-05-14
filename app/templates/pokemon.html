@@ -114,7 +114,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
-            <img src=https://img.pokemondb.net/artwork/{{ pokemon.name.lower() }}.jpg>
+            <img src=https://img.pokemondb.net/artwork/{{ pokemon.name|lower }}.jpg>
         </div>
         <div class="col-lg-4">
             <h2>Pokedex data</h2>
@@ -127,9 +127,9 @@
                 <tr>
                     <th scope="row">Type</th>
                     <td>
-                        <a class="type-icon type-{{ pokemon.type1.lower() }}">{{ pokemon.type1 }}</a>
+                        <a class="type-icon type-{{ pokemon.type1|lower }}">{{ pokemon.type1 }}</a>
                         {% if pokemon.type2 %}
-                        <a class="type-icon type-{{ pokemon.type2.lower() }}">{{ pokemon.type2 }}</a>
+                        <a class="type-icon type-{{ pokemon.type2|lower }}">{{ pokemon.type2 }}</a>
                         {% endif %}
                     </td>
                 </tr>
