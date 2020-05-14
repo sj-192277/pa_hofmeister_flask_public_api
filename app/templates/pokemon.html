@@ -37,6 +37,18 @@
         transition: opacity .4s;
     }
 
+    .nav-prev {
+        float: left;
+    }
+
+    .nav-next {
+        float: right;
+    }
+
+    .navbar {
+        align: center;
+    }
+
     .type-grass {
         background-color: #7c5;
     }
@@ -109,8 +121,42 @@
         background-color: #e9e;
     }
 
+    .arrow {
+      border: solid black;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+    }
+
+    .arrow-right {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
+
+    .arrow-left {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
+
 </style>
 <h1>{{ pokemon.name }}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <nav class="navbar">
+                <a class="nav-link nav-prev" rel="prev" href="/{{ pokemon.id - 1 }}">
+                    <i class="arrow arrow-left"></i> # {{ pokemon.id - 1 }}
+                </a>
+                <a class="nav-link" rel="pokedex" href="/">
+                    Pokédex
+                </a>
+                <a class="nav-link nav-next" rel="next" href="/{{ pokemon.id + 1 }}">
+                    # {{ pokemon.id + 1 }} <i class="arrow arrow-right"></i>
+                </a>
+            </nav>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
@@ -134,6 +180,20 @@
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row">Abilities</th>
+                    <td>
+                        <a>{{ pokemon.ability_1 }}</a>
+                        {% if pokemon.ability_2 %}
+                        <br>
+                        <a>{{ pokemon.ability_2 }}</a>
+                        {% endif %}
+                        {% if pokemon.ability_3 %}
+                        <br>
+                        <a>{{ pokemon.ability_3 }} (Hidden Ability)</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
                     <th scope="row">Height</th>
                     <td> {{ pokemon.height }}</td>
                 </tr>
@@ -148,6 +208,18 @@
             <h2>Base Stats</h2>
             <table class="table table-light">
                 <tbody>
+                <tr class="d-flex">
+                    <th class="col-3" scope="row">HP</th>
+                    <td class="col-2">{{ pokemon.base_stat_atk }}</td>
+                    <td class="col-6">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width: {{ (pokemon.base_stat_hp) / 1.5 }}%"
+                                 aria-valuenow="{{ (pokemon.base_stat_hp) / 1.5 }}"
+                                 aria-valuemin="0" aria-valuemax="150"></div>
+                        </div>
+                    </td>
+                </tr>
                 <tr class="d-flex">
                     <th class="col-3" scope="row">Attack</th>
                     <td class="col-2">{{ pokemon.base_stat_atk }}</td>

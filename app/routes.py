@@ -13,5 +13,5 @@ def dex():
 
 @app.route('/<pokemon>')
 def pokemon_page(pokemon):
-    pokemon = Pokemon.query.filter_by(name=pokemon).first()
+    pokemon = Pokemon.query.filter_by(name=pokemon).first() or Pokemon.query.filter_by(id=pokemon).first()
     return render_template('pokemon.html', title=pokemon, pokemon=pokemon)

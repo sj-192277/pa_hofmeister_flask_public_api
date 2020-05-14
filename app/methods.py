@@ -27,6 +27,17 @@ def check_database():
                 p_type2 = [t['type']['name'].capitalize() for t in p_info['types'] if t['slot'] == 2][0]
             except IndexError:
                 p_type2 = None
+            ability_1 = None
+            ability_2 = None
+            ability_3 = None
+            for ability in p_info['abilities']:
+                if ability['slot'] == 3:
+                    ability_3 = ability['ability']['name']
+                elif ability['slot'] == 2:
+                    ability_2 = ability['ability']['name']
+                elif ability['slot'] == 1:
+                    ability_1 = ability['ability']['name']
+            p_stat_hp = [s['base_stat'] for s in p_info['stats'] if s['stat']['name'] == "hp"][0]
             p_stat_atk = [s['base_stat'] for s in p_info['stats'] if s['stat']['name'] == "attack"][0]
             p_stat_def = [s['base_stat'] for s in p_info['stats'] if s['stat']['name'] == "defense"][0]
             p_stat_spatk = [s['base_stat'] for s in p_info['stats'] if s['stat']['name'] == "special-attack"][0]
@@ -42,9 +53,10 @@ def check_database():
                         sprites_front_default=p_info['sprites']['front_default'],
                         sprites_front_female=p_info['sprites']['front_female'],
                         sprites_front_shiny=p_info['sprites']['front_shiny'],
-                        sprites_front_shiny_female=p_info['sprites']['front_shiny_female'],
+                        sprites_front_shiny_female=p_info['sprites']['front_shiny_female'], base_stat_hp=p_stat_hp,
                         base_stat_atk=p_stat_atk, base_stat_def=p_stat_def, base_stat_spatk=p_stat_spatk,
-                        base_stat_spdef=p_stat_spdef, base_stat_speed=p_stat_spd)
+                        base_stat_spdef=p_stat_spdef, base_stat_speed=p_stat_spd, ability_1=ability_1,
+                        ability_2=ability_2, ability_3=ability_3)
             print(p)
             db.session.add(p)
             db.session.commit()
